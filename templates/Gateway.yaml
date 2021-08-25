@@ -2,8 +2,8 @@ apiVersion: networking.istio.io/v1beta1
 kind: Gateway
 metadata:
   labels:
-    app: harness-example
-  name: harness-example-gateway
+    app: {{.Values.name}}
+  name: {{.Values.name}}-gateway
 spec:
   selector:
     istio: ingressgateway
@@ -11,7 +11,7 @@ spec:
     - hosts:
         - '*'
       port:
-        name: harness-example
+        name: {{.Values.name}}
         number: 31400
         protocol: TCP
         targetPort: 31400
