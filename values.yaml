@@ -1,11 +1,11 @@
-name: harness-example
+name: harness-example-istio-ng
 replicas: 1
 
-image: ${artifact.metadata.image}
-dockercfg: ${artifact.source.dockerconfig}
+image: <+artifact.image>
+dockercfg: <+artifact.imagePullSecret>
 
 createNamespace: true
-namespace: ${infra.kubernetes.namespace}
+namespace: <+infra.namespace>
     
 canaryWeight: <+pipeline.stages.Istio_Deployment.spec.execution.steps.Approval.output.approverInputs.canary>
 stableWeight: <+pipeline.stages.Istio_Deployment.spec.execution.steps.Approval.output.approverInputs.stable>
