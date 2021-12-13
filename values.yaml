@@ -7,5 +7,5 @@ dockercfg: ${artifact.source.dockerconfig}
 createNamespace: true
 namespace: ${infra.kubernetes.namespace}
     
-canaryWeight: ${canaryTrafficWeight.variables.canary}
-stableWeight: ${canaryTrafficWeight.variables.stable}
+canaryWeight: <+pipeline.stages.Istio_Deployment.spec.execution.steps.Approval.output.approverInputs.canary>
+stableWeight: <+pipeline.stages.Istio_Deployment.spec.execution.steps.Approval.output.approverInputs.stable>
