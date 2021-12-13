@@ -21,10 +21,10 @@ spec:
             port:
               number: 9000
             subset: "canary"
-          weight: {{.Values.canaryWeight | default 0}}
+          weight: {{.Values.canaryWeightDefault | default 0}}
         - destination:
             host: {{.Values.name}}-svc
             port:
               number: 9000
             subset: "stable"
-          weight: {{.Values.stableWeight | default 100}}
+          weight: {{.Values.stableWeightDefault | default 100}}
