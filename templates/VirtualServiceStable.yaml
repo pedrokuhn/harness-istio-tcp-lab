@@ -21,10 +21,10 @@ spec:
             port:
               number: 9000
             subset: "canary"
-          weight: <+pipeline.stages.Istio_Deployment.spec.execution.steps.primaryDepoyment.steps.Split_All_Traffic_to_Stable.output.approverInputs.canary>
+          weight: {{.Values.canaryWeight | default 0}}
         - destination:
             host: {{.Values.name}}-svc
             port:
               number: 9000
             subset: "stable"
-          weight: <+pipeline.stages.Istio_Deployment.spec.execution.steps.primaryDepoyment.steps.Split_All_Traffic_to_Stable.output.approverInputs.stable>
+          weight: {{.Values.stableWeight | default 100}}
