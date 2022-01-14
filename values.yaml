@@ -7,8 +7,8 @@ dockercfg: <+artifact.imagePullSecret>
 createNamespace: true
 namespace: <+infra.namespace>
     
-canaryWeight: <+pipeline.stages.Istio_Deployment.spec.execution.steps.canaryDepoyment.steps.Approval.output.approverInputs.canary>
-stableWeight: <+pipeline.stages.Istio_Deployment.spec.execution.steps.canaryDepoyment.steps.Approval.output.approverInputs.stable>
+canaryWeight: <+execution.steps.canaryDepoyment.steps.Approval.output.approverInputs.canary>
+stableWeight: <+execution.steps.canaryDepoyment.steps.Approval.output.approverInputs.stable>
 
-canaryWeightDefault: <+pipeline.stages.Istio_Deployment.spec.execution.steps.primaryDepoyment.steps.Split_All_Traffic_to_Stable.output.approverInputs.canary>
-stableWeightDefault: <+pipeline.stages.Istio_Deployment.spec.execution.steps.primaryDepoyment.steps.Split_All_Traffic_to_Stable.output.approverInputs.stable>
+canaryWeightDefault: <+execution.steps.primaryDepoyment.steps.Split_All_Traffic_to_Stable.output.approverInputs.canary>
+stableWeightDefault: <+execution.steps.primaryDepoyment.steps.Split_All_Traffic_to_Stable.output.approverInputs.stable>
