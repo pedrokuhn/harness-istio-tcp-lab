@@ -7,8 +7,8 @@ dockercfg: <+artifact.imagePullSecret>
 createNamespace: true
 namespace: <+infra.namespace>
     
-canaryWeight: <+execution.steps.canaryDepoyment.steps.Approval.output.approverInputs.canary>
-stableWeight: <+execution.steps.canaryDepoyment.steps.Approval.output.approverInputs.stable>
+canaryWeight: <+execution.steps.canaryDeployment.steps.Approval.output.approverInputs.canary>
+stableWeight: <+execution.steps.canaryDeployment.steps.Approval.output.approverInputs.stable>
 
-canaryWeightDefault: <+execution.steps.primaryDepoyment.steps.Split_All_Traffic_to_Stable.output.approverInputs.canary>
-stableWeightDefault: <+execution.steps.primaryDepoyment.steps.Split_All_Traffic_to_Stable.output.approverInputs.stable>
+canaryWeightDefault: <+execution.steps.primaryDeployment.steps.Split_All_Traffic_to_Stable.output.approverInputs.canary>
+stableWeightDefault: <+execution.steps.primaryDeployment.steps.Split_All_Traffic_to_Stable.output.approverInputs.stable>
