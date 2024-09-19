@@ -10,5 +10,5 @@ namespace: <+infra.namespace>
 canaryWeight: 10
 stableWeight: 90
 
-canaryWeightDefault: 0
+canaryWeightDefault: 50
 stableWeightDefault: 100
