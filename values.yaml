@@ -1,9 +1,6 @@
 name: harness-example-istio-ng
 replicas: 1
 
-image: <+artifact.image>
-dockercfg: <+artifact.imagePullSecret>
-
 createNamespace: true
 namespace: <+infra.namespace>
     
