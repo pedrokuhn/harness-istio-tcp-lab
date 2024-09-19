@@ -1,19 +1,15 @@
 ---
-apiVersion: networking.istio.io/v1alpha3
+apiVersion: networking.istio.io/v1beta1
 kind: DestinationRule
 metadata:
-  annotations:
-    harness.io/managed: true
-  name: {{.Values.name}}-destinationrule
+  name: httpbin
+  namespace: pedro
 spec:
-  host: {{.Values.name}}-svc
+  host: httpbin
   subsets:
-    - labels:
+    - name: v1
+      labels:
         harness.io/track: canary
-      name: canary
-    - labels:
+    - name: v2
+      labels:
         harness.io/track: stable
-      name: stable
-  trafficPolicy:
-    loadBalancer:
-      simple: RANDOM

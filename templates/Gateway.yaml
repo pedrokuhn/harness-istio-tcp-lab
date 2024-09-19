@@ -1,17 +1,15 @@
 apiVersion: networking.istio.io/v1beta1
 kind: Gateway
 metadata:
-  labels:
-    app: {{.Values.name}}
-  name: {{.Values.name}}-gateway
+  name: httpbin-gateway
+  namespace: pedro
 spec:
   selector:
     istio: ingressgateway
   servers:
-    - hosts:
-        - '*'
-      port:
-        name: {{.Values.name}}
-        number: 31400
-        protocol: TCP
-        targetPort: 31400
+    - port:
+        number: 80
+        name: http
+        protocol: HTTP
+      hosts:
+        - "*"
